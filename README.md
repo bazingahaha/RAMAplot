@@ -1,6 +1,11 @@
 # RAMAplot
 _**Generate Ramachandran plots for single PDB structure and as heatmap for MD trajectory**_
 
+```
+  Author: Peter M.U. Ung @ MSSM / Yale
+
+  vers:   1.0
+```
 There are 2 parts to this particular Ramachandran (amino acid backbone dihedral angle) plot scripts:
 1) Generation of standarad Ramachandran plots for one input PDB structure.
 2) Generation amino acid backbone dihedral angle distribution/population (from MD simulations) as contoured heatmap.
@@ -29,7 +34,7 @@ e.g.> ./0_pdb2fasta.py \
 This script convert PDB file into FASTA sequence. However, nonstandard amino acids such as capping groups (ACE/NME) and modified residues (PTO/MSE) and alternative names (HIE/HIP/HID for HIS) are not read in properly by BioPython. User need to add ACE/NME (as 'X') to the result fasta file; alternative residue name _(sed 's/HIE|/HIP|/HID/HIS/g')_ and non-standard AA fixings have to be done before hand.
 
 #######################################################################################
-- **Generate Ramachandran Plot for _all_ residues in _ONE_ PDB structure **
+- **Generate Ramachandran Plot for _all_ residues in _ONE_ PDB structure**
 ```
 > 1_rama_single_structure.py
       -in  [ PDB file for Ramachandran density plot ]
@@ -52,7 +57,7 @@ This script manages the generation of Ramachandran plots for one input PDB struc
 ![Ramachandran plot of a PDB structure](https://github.com/mungpeter/RAMAplot/blob/master/Examples/1_single_struct/3anr.rama_plot.png)
 
 #######################################################################################
-- **Generate Ramachandran Plot for _ONE_ residues in a MD trajectory **
+- **Generate Ramachandran Plot for _ONE_ residues in a MD trajectory**
 ```
 > 2_rama_md_heatmap.csh
       [ Starting residue for phi/psi in PTRAJ (prmtop) ]
@@ -97,7 +102,7 @@ This shell script calls up **2x_rama_md_heatmap_gen.py** to generate the distrib
       -c_step   [ Histo Contour spacing per histogram digits unit (def: 4) ]
       -dpi      [ Figure DPI resolution (def: 300) ]\n
 ```
-This is the **actual** script that generates the heatmap figure, but it can only do **one** residue at a time so it should be coupled with the above _rama_md_heatmap.csh_ script to run through a list of residues.
+This is the **actual** script that generates the heatmap figure, but it can only do **one** residue at a time so it should be coupled with the above **2_rama_md_heatmap.csh** script to run through a list of residues.
 
 - Distribution of AA backbone dihedral angle of a residue throughout MD trajectories as heatmap
 ![Distribution of AA backbone dihedral angle of a residue throughout MD trajectories as heatmap](https://github.com/mungpeter/RAMAplot/blob/master/Examples/2_md_heatmap/fgf21-wt.P205.rama_histo.png)
@@ -148,7 +153,7 @@ This script calculate the population of dihedral angles that fall within the def
 
 
 #######################################################################################
-Stable packages:
+- **Stable packages:**
 ```
 csh/tcsh      # shell
 
